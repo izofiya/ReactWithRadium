@@ -1,15 +1,15 @@
-.App {
+.app {
   text-align: center;
 }
 
 .red {
   color: red;
+  width: 40%;
+  margin: 10px auto;
 }
 
 .burlywood {
   background-color: burlywood;
-  width: 40%;
-  margin: 10px auto;
 }
 
 .button {
@@ -19,6 +19,8 @@
   border: 1px solid blue;
   padding: 8px;
   cursor: pointer;
+  display: block;
+  margin: 0 auto;
 }
 
 .button:hover {

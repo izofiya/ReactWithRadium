@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./App.css";
+import classes from "./App.module.css";
 import Person from "./Person/Person";
 
 const App = (props) => {
@@ -62,19 +62,10 @@ const App = (props) => {
     );
   }
 
-  const classes = [];
-  if(personsState.persons.length <= 2) {
-    classes.push("red");
-  }
-  if(personsState.persons.length <= 1) {
-    classes.push("burlywood");
-    console.log(classes);
-  }
-
   return (
-    <div className="App">
-    <p className={classes.join(" ")}>This is really working</p>
-      <button className="button" onClick={togglePersonsHandler}>
+    <div className={classes.app}>
+    <p className={personsState.persons.length <= 1 ? `${classes.burlywood} ${classes.red}` : classes.red}>This is really working</p>
+      <button className={classes.button} onClick={togglePersonsHandler}>
         Switch Name
       </button>
       {persons}
