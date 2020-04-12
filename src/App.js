@@ -1,7 +1,21 @@
+
+import styled from "styled-components";
 import React, { useState } from "react";
-import Radium, {StyleRoot} from "radium";
 import "./App.css";
 import Person from "./Person/Person";
+
+const StyledButton = styled.button`
+  background-color: ${props => props.alt ? "red" : "green"};
+  color: white;
+  font: inherit;
+  border: 1px solid blue;
+  padding: 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${props => props.alt ? "pink" : "lightgreen"};
+    color: black;
+  }
+`;
 
 const App = (props) => {
   const [personsState, setPersonsState] = useState({
@@ -91,16 +105,14 @@ const App = (props) => {
   }
 
   return (
-    <StyleRoot>
     <div className="App">
     <p className={classes.join(" ")}>This is really working</p>
-      <button style={style} onClick={togglePersonsHandler}>
+      <StyledButton alt={showPersonsState.showPersons} onClick={togglePersonsHandler}>
         Switch Name
-      </button>
+      </StyledButton>
       {persons}
     </div>
-    </StyleRoot>
   );
 };
 
-export default Radium(App);
+export default App;
