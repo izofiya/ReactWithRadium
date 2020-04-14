@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classes from "./App.module.css";
-import Person from "./Person/Person";
+import Persons from "../components/Persons/Persons";
+import Cockpit from "../components/Cockpit/Cockpit";
 
 const App = (props) => {
   const [personsState, setPersonsState] = useState({
@@ -26,7 +27,7 @@ const App = (props) => {
     persons[personIndex] = person;
 
     setPersonsState({
-      persons
+      persons,
     });
   };
 
@@ -45,29 +46,19 @@ const App = (props) => {
 
   let persons = null;
   if (showPersonsState.showPersons) {
-    persons = (
-      <div>
-        {personsState.persons.map((person, index) => {
-          return (
-            <Person
-              key={person.id}
-              name={person.name}
-              age={person.age}
-              changed={(e) => nameChangedHandler(e, person.id)}
-              click={() => deletePersonHandler(index)}
-            />
-          );
-        })}
-      </div>
-    );
+    persons = <Persons
+          persons={personsState.persons}
+          clicked={deletePersonHandler}
+          changed={nameChangedHandler}
+        />;
   }
 
   return (
     <div className={classes.app}>
-    <p className={personsState.persons.length <= 1 ? `${classes.burlywood} ${classes.red}` : classes.red}>This is really working</p>
-      <button className={classes.button} onClick={togglePersonsHandler}>
-        Switch Name
-      </button>
+      <Cockpit 
+        persons={personsState.persons}
+        clicked={togglePersonsHandler}
+      />
       {persons}
     </div>
   );
