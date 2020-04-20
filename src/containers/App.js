@@ -6,9 +6,10 @@ import Cockpit from "../components/Cockpit/Cockpit";
 const App = (props) => {
   const [personsState, setPersonsState] = useState({
     persons: [
-      { id: "111", name: "Zoi", age: "33" },
-      { id: "112", name: "Alex", age: "38" },
-      { id: "122", name: "Dem", age: "48" },
+      { id: "111", name: "Zoya Pleskatsevich", project: "GCP Labs: ​Mr/Ms of the Month" },
+      { id: "221", name: "Katsiaryna Kamiak", project: "Domino's" },
+      { id: "112", name: "Yuliya Samsonova", project: "RS Components" },
+      { id: "122", name: "Alina Kazyryna", project: "MyJar" },
     ],
     otherState: "some other value",
     showPersons: false,

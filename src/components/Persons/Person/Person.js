@@ -6,7 +6,7 @@ const person = (props) => {
   return (
     <div className={classes.person}>  
       <p onClick={props.click}>
-        I'm a {props.name} and I'm {props.age} years old!
+        I'm a {props.name} and my project "{props.project}" !
       </p>
       <p>{props.children}</p>
       <input type="text" onChange={props.changed} value={props.name} />
